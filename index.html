@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Ronnie’s Agro Foods – Fresh food, delivered in Lagos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <div class="top">Hygienically processed · Fast &amp; reliable delivery · Order: <a id="t1"></a></div>
+
+    <header>
+      <div class="wrap">
+        <button class="logo" data-go="home" aria-label="Ronnie’s Agro Foods home">
+          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="9" fill="#17612f"></rect>
+            <path d="M16 25c0-7 1-11 7-14-1 7-3 11-7 14zM16 25c0-5-1-8-6-10 1 5 3 8 6 10z" fill="#e8a817"></path>
+          </svg>
+          <span>Ronnie’s<small>Agro Foods</small></span>
+        </button>
+        <div class="hr">
+          <button class="ib" data-go="shop" data-focus="1" aria-label="Search products">🔍</button>
+          <button class="ib cart" data-go="cart" id="cartBtn" aria-label="View cart"></button>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="in" id="nav"></div>
+    </nav>
+
+    <main>
+      <div class="wrap" id="view"></div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="cols">
+          <div><b>Ronnie’s Agro Foods</b>Fresh. Natural. Quality.<br>Lagos State</div>
+          <div>
+            <b>Help</b>
+            <button data-go="help">Customer help</button>
+            <button data-go="cart">My cart</button>
+            <a id="t2"></a>
+          </div>
+          <div><b>Follow</b><span>Instagram @ronniesagro<br>www.ronniesagro.com</span></div>
+        </div>
+        <p>Delivery charges apply and are confirmed on WhatsApp. Prices follow Ronnie’s current list.</p>
+      </div>
+    </footer>
+
+    <a class="fab" id="fab" target="_blank" rel="noopener"><span aria-hidden="true">💬</span><span>WhatsApp us</span></a>
+    <div class="toast" id="toast" role="status"><span id="tmsg"></span><button data-go="cart">View cart</button></div>
+
+    <div class="passkey-modal" id="admin-passkey-modal" hidden>
+      <div class="passkey-card">
+        <h3>Admin access</h3>
+        <p>Enter the admin passkey to unlock the dashboard.</p>
+        <form id="admin-passkey-form">
+          <input id="admin-passkey-input" type="password" autocomplete="off" placeholder="Enter passkey" required>
+          <div class="passkey-actions">
+            <button class="btn" type="submit">Unlock</button>
+            <button id="admin-passkey-cancel" class="btn ghost" type="button" data-admin-passkey-close="1">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

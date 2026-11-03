@@ -52,7 +52,7 @@ function saveProducts(items) {
 
 let P = loadProducts();
 let adminState = { editingId: null };
-const ADMIN_PASSKEY = 'HendraFarmproductservice@1914?';
+const ADMIN_PASSKEY = 'Farmproduct&service@1960';
 let adminUnlocked = false;
 
 function showAdminPasskeyModal() {

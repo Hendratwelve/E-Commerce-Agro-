@@ -1,3 +1,8 @@
+window.RONNIES_FIREBASE_CONFIG = {
+  enabled: false,
+  databaseURL: 'https://your-project-default-rtdb.firebaseio.com'
+};
+
 window.RONNIES_DATA = {
   store: {
     wa: '2348130983206',

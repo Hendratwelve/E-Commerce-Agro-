@@ -34,6 +34,10 @@ function hasVariants(product) {
 }
 
 function loadProducts() {
+  if (window.ProductStore && typeof window.ProductStore.loadProducts === 'function') {
+    return window.ProductStore.loadProducts();
+  }
+
   try {
     const stored = JSON.parse(localStorage.getItem(PRODUCT_STORAGE_KEY) || 'null');
     if (Array.isArray(stored) && stored.length) {
@@ -43,14 +47,26 @@ function loadProducts() {
     // ignore storage parsing errors and fall back to defaults
   }
 
-  return DEFAULT_PRODUCTS.map(normalizeProduct);
+  return Promise.resolve(DEFAULT_PRODUCTS.map(normalizeProduct));
 }
 
 function saveProducts(items) {
-  localStorage.setItem(PRODUCT_STORAGE_KEY, JSON.stringify(items.map(normalizeProduct)));
+  if (window.ProductStore && typeof window.ProductStore.saveProducts === 'function') {
+    return window.ProductStore.saveProducts(items);
+  }
+
+  const normalized = (items || []).map(normalizeProduct);
+  localStorage.setItem(PRODUCT_STORAGE_KEY, JSON.stringify(normalized));
+  return Promise.resolve(normalized);
 }
 
-let P = loadProducts();
+let P = DEFAULT_PRODUCTS.map(normalizeProduct);
+async function hydrateProducts() {
+  P = await loadProducts();
+  syncSelectionState();
+  render();
+}
+
 let adminState = { editingId: null };
 const ADMIN_PASSKEY = 'Farmproduct&service@1960';
 let adminUnlocked = false;
@@ -787,5 +803,5 @@ if (fab) {
   }
 })();
 
-render();
+hydrateProducts();
 window.__appInitialized = true;
